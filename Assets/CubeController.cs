@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeController : MonoBehaviour {
+
+public class CubeController : MonoBehaviour
+{
 
     // キューブの移動速度
     private float speed = -12;
@@ -10,11 +12,12 @@ public class CubeController : MonoBehaviour {
     // 消滅位置
     private float deadLine = -10;
 
-
+    AudioSource audioSource;
 
     // Use this for initialization
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,13 +36,15 @@ public class CubeController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Untagget") {
-            GetComponent<AudioSource>().volume = 1;
+        if (collision.gameObject.tag == "SoundTrigger")
+        {
+            audioSource.Play();
+
+            Debug.Log("再生");
+
         }
 
-        else if (collision.gameObject.tag == "UnityChanTag") { 
-            GetComponent<AudioSource>().volume = 0;
-        }
+
 
     }
 
