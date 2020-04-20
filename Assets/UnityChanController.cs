@@ -10,7 +10,7 @@ public class UnityChanController : MonoBehaviour {
 
     private float groundLevel = -3.0f;
 
-    private float dump = -3.0f;
+    private float dump = 0.8f;
 
     float jumpVelocity = 20;
 
